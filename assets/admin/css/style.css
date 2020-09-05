@@ -1,0 +1,9 @@
+select {
+    color: #000 !important;
+}
+
+table img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0.25rem !important;
+}
