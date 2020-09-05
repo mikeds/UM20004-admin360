@@ -15,7 +15,8 @@ class Admin_Controller extends Global_Controller {
 		$_base_controller = "admin",
 		$_base_session = "session",
 		$_data = array(), // shared data with child controller
-		$_limit = 20;
+		$_limit = 20,
+		$_account = null;
 
 	/**
 	 * Constructor
@@ -27,8 +28,34 @@ class Admin_Controller extends Global_Controller {
 		$this->_today = date("Y-m-d H:i:s");
 
 		$this->validate_login();
+		$this->setup_account();
 		$this->setup_nav_sidebar_menu();
 		$this->after_init();
+	}
+
+	private function setup_account() {
+		$this->load->model("admin/accounts_model", "accounts");
+		$account = $this->session->userdata("{$this->_base_session}");
+
+		if (!isset($account['id'])) {
+			redirect(base_url() . "logout");
+		}
+
+		$id = $account['id'];
+
+		$row = $this->accounts->get_datum(
+			'',
+			array(
+				'account_number' => $id,
+				'account_status' => 1 // activated
+			)
+		)->row();
+
+		if ($row == "") {
+			redirect(base_url() . "logout");
+		}
+
+		$this->_account = $row;
 	}
 
 	public function validate_login() {

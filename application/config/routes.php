@@ -54,6 +54,9 @@ $route["default_controller"]        = "admin/Dashboard";
 
 $route["qr-code/(:any)"] = "admin/Qr_code/index/$1";
 
+$route["clients"]           = "admin/clients";
+$route["clients/(:num)"]    = "admin/clients/index/$1";
+
 $route["login"]         = "public/Login";
 $route["logout"]        = "public/Logout";
 
