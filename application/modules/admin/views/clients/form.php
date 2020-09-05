@@ -14,50 +14,20 @@
 								</div>     
 							</div>
 							<div class="row">
-								<div class="col-xl-4">
+								<div class="col-xl-12">
 									<div class="form-group">
-										<label>Username <span class="text-danger">*</span></label>
-										<input name="username" class="form-control" placeholder="Username" value="<?=isset($post['username']) ? $post['username'] : ""?>">
-										<span class="text-danger"><?=form_error('username')?></span>
+										<label>Code <span class="text-danger">*</span></label>
+										<input name="code" class="form-control" placeholder="Code" value="<?=isset($post['code']) ? $post['code'] : ""?>">
+										<span class="text-danger"><?=form_error('code')?></span>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xl-4">
+								<div class="col-xl-12">
 									<div class="form-group">
-										<label>Password <span class="text-danger">*</span></label>
-										<input type="password" name="password" class="form-control" placeholder="Password" value="<?=isset($post['password']) ? $post['password'] : ""?>">
-										<span class="text-danger"><?=form_error('password')?></span>
-									</div>
-								</div>
-								<div class="col-xl-4">
-									<div class="form-group">
-										<label>Repeat Password <span class="text-danger">*</span></label>
-										<input type="password" name="repeat-password" class="form-control" placeholder="Repeat Password" value="<?=isset($post['repeat-password']) ? $post['repeat-password'] : ""?>">
-										<span class="text-danger"><?=form_error('repeat-password')?></span>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xl-4">
-									<div class="form-group">
-										<label>First Name <span class="text-danger">*</span></label>
-										<input name="first-name" class="form-control" placeholder="First Name" value="<?=isset($post['first-name']) ? $post['first-name'] : ""?>">
-										<span class="text-danger"><?=form_error('first-name')?></span>
-									</div>
-								</div>
-								<div class="col-xl-4">
-									<div class="form-group">
-										<label>Middle Name</label>
-										<input name="middle-name" class="form-control" placeholder="Middle Name" value="<?=isset($post['middle-name']) ? $post['middle-name'] : ""?>">
-										<span class="text-danger"><?=form_error('middle-name')?></span>
-									</div>
-								</div>
-								<div class="col-xl-4">
-									<div class="form-group">
-										<label>Last Name <span class="text-danger">*</span></label>
-										<input name="last-name" class="form-control" placeholder="Last Name" value="<?=isset($post['last-name']) ? $post['last-name'] : ""?>">
-										<span class="text-danger"><?=form_error('last-name')?></span>
+										<label>Name <span class="text-danger">*</span></label>
+										<input name="name" class="form-control" placeholder="Name" value="<?=isset($post['name']) ? $post['name'] : ""?>">
+										<span class="text-danger"><?=form_error('name')?></span>
 									</div>
 								</div>
 							</div>
