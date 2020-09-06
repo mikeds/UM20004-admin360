@@ -36,7 +36,7 @@ switch( strtolower(get_controller()) ) {
 		);
 	break;
 
-	case 'clients' : 
+	case 'tms_admins' : 
 		$config = array(
 			'validate' => array(
 				array( 	
@@ -49,6 +49,53 @@ switch( strtolower(get_controller()) ) {
 					'label' => 'Name',
 					'rules'	=> 'trim|required|min_length[4]|xss_clean|alpha_numeric_spaces'
 				)
+			),
+		);
+	break;
+
+	case 'admin_accounts' : 
+		$config = array(
+			'validate' => array(
+				array( 	
+					'field' => 'tms-admin',
+					'label' => 'TMS Admin',
+					'rules'	=> "trim|xss_clean|required"
+				),
+				array( 	
+					'field' => 'username',
+					'label' => 'Username',
+					'rules'	=> $required_alphanumeric_rules
+				),
+				array( 	
+					'field' => 'first-name',
+					'label' => 'First Name',
+					'rules'	=> $required_rules
+				),
+				array( 	
+					'field' => 'middle-name',
+					'label' => 'Middle Name',
+					'rules'	=> $default_rules
+				),
+				array( 	
+					'field' => 'last-name',
+					'label' => 'Last Name',
+					'rules'	=> $required_rules
+				),
+				array( 	
+					'field' => 'passsword',
+					'label' => 'Password',
+					'rules'	=> "trim|xss_clean"
+				),
+				array( 	
+					'field' => 'repeat-passsword',
+					'label' => 'Repeat Password',
+					'rules'	=> "trim|xss_clean"
+				),
+				array( 	
+					'field' => 'status',
+					'label' => 'Status',
+					'rules'	=> $default_numeric_rules
+				),
 			),
 		);
 	break;

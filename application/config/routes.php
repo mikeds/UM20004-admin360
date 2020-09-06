@@ -54,9 +54,13 @@ $route["default_controller"]        = "admin/Dashboard";
 
 $route["qr-code/(:any)"] = "admin/Qr_code/index/$1";
 
-$route["clients"]           = "admin/Clients";
-$route["clients/(:num)"]    = "admin/Clients/index/$1";
-$route["clients/new"]       = "admin/Clients/new";
+$route["tms-admins"]           = "admin/Tms_admins";
+$route["tms-admins/(:num)"]    = "admin/Tms_admins/index/$1";
+$route["tms-admins/new"]       = "admin/Tms_admins/new";
+
+$route["admin-accounts"]           = "admin/Admin_accounts";
+$route["admin-accounts/(:num)"]    = "admin/Admin_accounts/index/$1";
+$route["admin-accounts/new"]       = "admin/Admin_accounts/new";
 
 $route["login"]         = "public/Login";
 $route["logout"]        = "public/Logout";

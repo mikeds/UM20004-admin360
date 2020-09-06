@@ -197,9 +197,9 @@ class Admin_Controller extends Global_Controller {
 		return $flag;
 	}
 
-	public function generate_code($data) {
+	public function generate_code($data, $hash = "sha256") {
 		$json = json_encode($data);
-		return hash_hmac("sha256", $json, getenv("SYSKEY"));
+		return hash_hmac($hash, $json, getenv("SYSKEY"));
 	}
 
 	public function generate_image_gallery($images_data) {
@@ -387,18 +387,18 @@ HTML;
 		);
 
 		$menu_items[] = array(
-			'menu_id'			=> 'clients',
-			'menu_title'		=> 'Clients',
-			'menu_url'			=> 	base_url() . "clients",
-			'menu_controller'	=> 'clients',
+			'menu_id'			=> 'tms-admins',
+			'menu_title'		=> 'TMS Admins',
+			'menu_url'			=> 	base_url() . "tms-admins",
+			'menu_controller'	=> 'tms_admins',
 			'menu_icon'			=> 'view-dashboard',
 		);
 
 		$menu_items[] = array(
-			'menu_id'			=> 'client-accounts',
-			'menu_title'		=> 'Client Accounts',
-			'menu_url'			=> 	base_url() . "client-accounts",
-			'menu_controller'	=> 'client_accounts',
+			'menu_id'			=> 'admin-accounts',
+			'menu_title'		=> 'Admin Accounts',
+			'menu_url'			=> 	base_url() . "admin-accounts",
+			'menu_controller'	=> 'admin_accounts',
 			'menu_icon'			=> 'view-dashboard',
 		);
 

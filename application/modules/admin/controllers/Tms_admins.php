@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Clients extends Admin_Controller {
+class Tms_admins extends Admin_Controller {
 
 	public function after_init() {
 		$this->set_scripts_and_styles();
 
 		$this->load->model('admin/oauth_bridges_model', 'bridges');
-		$this->load->model('admin/tms_admins_model', 'clients');
+		$this->load->model('admin/tms_admins_model', 'admins');
 	}
 
 	public function index($page = 1) {
-		$this->_data['add_label']= "New Client";
-		$this->_data['add_url']	 = base_url() . "clients/new";
+		$this->_data['add_label']= "New TMS Admin";
+		$this->_data['add_url']	 = base_url() . "tms-admins/new";
 
 		$select = array(
 			'tms_admin_number as id',
@@ -26,19 +26,19 @@ class Clients extends Admin_Controller {
 			'update'
 		);
 
-		$total_rows = $this->clients->get_count();
+		$total_rows = $this->admins->get_count();
 		$offset = $this->get_pagination_offset($page, $this->_limit, $total_rows);
-	    $results = $this->clients->get_data($select, array(), array(), array(), array('filter'=>'tms_admin_date_added', 'sort'=>'ASC'), $offset, $this->_limit);
+	    $results = $this->admins->get_data($select, array(), array(), array(), array('filter'=>'tms_admin_date_added', 'sort'=>'ASC'), $offset, $this->_limit);
 
 		$this->_data['listing'] = $this->table_listing('', $results, $total_rows, $offset, $this->_limit, $actions, 4);
-		$this->_data['title']  = "Clients";
-		$this->set_template("clients/list", $this->_data);
+		$this->_data['title']  = "TMS Admins";
+		$this->set_template("admins/list", $this->_data);
 	}
 
 	public function new() {
 		$oauth_bridge_parent_id = $this->_account->oauth_bridge_id;
 
-		$this->_data['form_url']		= base_url() . "clients/new";
+		$this->_data['form_url']		= base_url() . "tms-admins/new";
 		$this->_data['notification'] 	= $this->session->flashdata('notification');
 
 		if ($_POST) {
@@ -79,7 +79,7 @@ class Clients extends Admin_Controller {
 					'oauth_bridge_id'		=> $bridge_id,
 				);
 
-				$this->clients->insert(
+				$this->admins->insert(
 					$insert_data
 				);
 
@@ -95,6 +95,6 @@ class Clients extends Admin_Controller {
 		}
 
 		$this->_data['title']  = "New Client";
-		$this->set_template("clients/form", $this->_data);
+		$this->set_template("admins/form", $this->_data);
 	}
 }
