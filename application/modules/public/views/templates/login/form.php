@@ -42,7 +42,7 @@
         </div>
         </div>
         <div class="col-lg-6 login-bg d-flex flex-row">
-        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 BambuPAY All rights reserved.</p>
+        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 UXI All rights reserved.</p>
         </div>
     </div>
 </div>
